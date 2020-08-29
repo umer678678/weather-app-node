@@ -3,8 +3,10 @@ const express = require('express')
 const hbs = require('hbs')
 const geocode = require('./utlis/geocode.js')
 const forecast = require('./utlis/forecast.js')
-const { getHeapCodeStatistics } = require('v8')
+//const { getHeapCodeStatistics } = require('v8')
+
 const app = express()
+const port = process.env.PORT || 3000
 
 //define path or express config
 const publicDir = path.join(__dirname, '../public')
@@ -86,6 +88,6 @@ app.get('*' , (req , res) => {
         errorMessage: '404 Page not found'
     })
 })
-app.listen(3000, () =>{
-    console.log('server is display on port 3000')
+app.listen(port, () =>{
+    console.log('server is display on port ' + port)
 })
